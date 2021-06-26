@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+'''
+This server connects and exposes its functions to the Hello World 
+anvil client via uplink
+'''
 import yaml
 import anvil.server
 
