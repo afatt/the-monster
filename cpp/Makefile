@@ -29,12 +29,15 @@ endif
 #all: system-check route_guide_client route_guide_server
 
 # add these as files to be compiled
-all: ipc_writer ipc_reader
+all: ipc_writer ipc_reader client
 
 ipc_writer: ipc_writer.cpp
 	$(CXX) $^ -o $@
 
 ipc_reader: ipc_reader.cpp
+	$(CXX) $^ -o $@
+
+client: client.cpp
 	$(CXX) $^ -o $@
 
 #route_guide_client: route_guide.pb.o route_guide.grpc.pb.o route_guide_client.o helper.o
@@ -50,7 +53,7 @@ ipc_reader: ipc_reader.cpp
 # 	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
 
 clean:
-	rm -f *.o *.pb.cc *.pb.h ipc_writer ipc_reader
+	rm -f *.o *.pb.cc *.pb.h ipc_writer ipc_reader client
 
 
 # The following is to test your system and ensure a smoother experience.
